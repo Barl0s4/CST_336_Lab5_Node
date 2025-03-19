@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    
+
+    <h1><%= planetSelect %></h1>
+    <%- include('partials/navbar.ejs')%>
+    <br>
+    <%= planetInfo.distanceFromSun%>
+    <br>
+    <%= planetInfo.yearLength%>
+    <br>
+    <%= planetInfo.description%>
+    <br>
+    <%= planetInfo.radius%>
+    <br>
+    <%= planetInfo.oneEarthDay%>
+    <br>
+    <%= planetInfo.moons%>
+
+    <img src="<%= planetInfo.image%>" />
+</body>
+</html>

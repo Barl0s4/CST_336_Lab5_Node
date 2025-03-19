@@ -13,6 +13,12 @@ app.get('/', async (req, res) => {
    
     res.render("home", {img: data.hits[0].webformatURL});
 });
+app.get('/getMeteoritesInfo', (req, res) =>{
+    let MeteoritesInfo = planets.getMeteorite();
+    console.log(MeteoritesInfo);
+    res.render('MeteoritesInfo', MeteoritesInfo)
+
+});
 app.get('/getPlanetInfo', (req, res) => {
     let planetSelect = req.query.planet;
     let planetInfo;
@@ -37,7 +43,14 @@ app.get('/getPlanetInfo', (req, res) => {
         planetInfo = planets.getSun();
     } else if (planetSelect === 'Neptune'){
         planetInfo = planets.getNeptune();
-    }
+    } 
+    // else if (planetSelect === 'Meteorites'){
+    //     planetInfo = planets.getMeteorite();
+    // }else if(planetSelect === 'Comets'){
+    //     planetInfo = planets.getComets();
+    // } else if (planetSelect === 'Asteroids'){
+    //     planetInfo = planets.getAsteroids();
+    // }
     console.log(planetInfo);
     res.render('planetInfo', {planetInfo, planetSelect});
     
