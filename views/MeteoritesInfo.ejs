@@ -4,19 +4,29 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Meteorites</title>
+    <link rel="stylesheet" href="/styles.css">
 </head>
 <body>
     <h1>Meteorites</h1>
-    <%- include('partials/navbar.ejs')%>
+    <%- include('partials/navbar.ejs') %>
+    
     <br>
-    <%= MeteoritesInfo.meteors%>
-    <br>
-    <%= MeteoritesInfo.meteorite%>
-    <br>
-    <%= MeteoritesInfo.meteorShowers%>
-    <br>
-    <%= MeteoritesInfo.meteorShowerLink%>
-    <br>
-    <img src="<%= MeteoritesInfo.image%>" >
+    <h2>What are Meteors?</h2>
+    <p><%= meteoritesInfo.meteors %></p>
+
+    <h2>What is a Meteorite?</h2>
+    <p><%= meteoritesInfo.meteorite %></p>
+
+    <h2>Meteor Showers</h2>
+    <p><%= meteoritesInfo.meteorShowers %></p>
+
+    <h2>Learn More</h2>
+    <a href="<%= meteoritesInfo.meteorShowerLink %>">More Information on Meteor Showers</a>
+
+    <h2>Image</h2>
+    <img src="<%= meteoritesInfo.image %>" alt="Meteorite Image">
+    <%- include('partials/footer.ejs') %>
+
 </body>
 </html>
+

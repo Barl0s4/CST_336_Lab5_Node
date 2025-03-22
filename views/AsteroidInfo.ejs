@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Asteroids</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+    <h1>Asteroids</h1>
+    <%- include('partials/navbar.ejs') %>
+    <br>
+    <h2>What is an Asteroid?</h2>
+    <p><%= asteroidInfo.def %></p>
+    <h2>Learn More</h2>
+    <a href="<%= asteroidInfo.link %>">More Information on Asteroids</a>
+    <h2>Image</h2>
+    <img src="<%= asteroidInfo.image %>" alt="Asteroid Image">
+    <%- include('partials/footer.ejs') %>
+</body>
+</html>
+

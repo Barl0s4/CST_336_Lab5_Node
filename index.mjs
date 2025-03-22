@@ -10,15 +10,38 @@ app.get('/', async (req, res) => {
     let URL = ("https://pixabay.com/api/?key=5589438-47a0bca778bf23fc2e8c5bf3e&q=solar%20system&per_page=50&orientation=horizontal");
     let response = await fetch(URL);
     let data = await response.json();
-   
-    res.render("home", {img: data.hits[0].webformatURL});
+    let randomNumber = Math.floor(Math.random() * 46);
+    res.render("home", {img: data.hits[randomNumber].webformatURL});
 });
-app.get('/getMeteoritesInfo', (req, res) =>{
-    let MeteoritesInfo = planets.getMeteorite();
-    console.log(MeteoritesInfo);
-    res.render('MeteoritesInfo', MeteoritesInfo)
 
+app.get('/nasa', async (req, res) => {
+    let apiKey = '9mUzIkhlZCZaOoMfspg7jMmwZCZ4LiRHtkgkambD';
+    let date = new Date().toISOString();
+    let currentDate = date.split('T')[0];
+    let url = `https://api.nasa.gov/planetary/apod?api_key=${apiKey}&date=${currentDate}`;
+    console.log.apply(url);
+    let response = await fetch(url);
+    let data = await response.json();
+    console.log(data);
+    res.render('nasa', {imageUrl: data.url, description: data.explanation});
 });
+
+app.get('/getInfo', (req, res) => {
+    let infoType = req.query.info;
+
+    if (infoType === "Meteorites") {
+        let meteoritesInfo = planets.getMeteorite();
+        res.render('MeteoritesInfo', { meteoritesInfo });
+    } else if (infoType === "Comet") {
+        let cometInfo = planets.getComets();
+        res.render('CometInfo', { cometInfo });
+    } else if (infoType === "Asteroid") {
+        let asteroidInfo = planets.getAsteroids();
+        res.render('AsteroidInfo', { asteroidInfo });
+    }
+});
+
+
 app.get('/getPlanetInfo', (req, res) => {
     let planetSelect = req.query.planet;
     let planetInfo;
@@ -43,39 +66,12 @@ app.get('/getPlanetInfo', (req, res) => {
         planetInfo = planets.getSun();
     } else if (planetSelect === 'Neptune'){
         planetInfo = planets.getNeptune();
-    } 
-    // else if (planetSelect === 'Meteorites'){
-    //     planetInfo = planets.getMeteorite();
-    // }else if(planetSelect === 'Comets'){
-    //     planetInfo = planets.getComets();
-    // } else if (planetSelect === 'Asteroids'){
-    //     planetInfo = planets.getAsteroids();
-    // }
+    }
     console.log(planetInfo);
     res.render('planetInfo', {planetInfo, planetSelect});
     
 });
-// app.get('/mercury', (req, res) => {
-//     let mercuryInfo = planets.getMercury();
-//     res.render("mercury", {mercury: mercuryInfo,} );
-// });
-// app.get('/venus', (req, res) => {
-//     let venusInfo = planets.getVenus();
-//     res.render("venus", {venus: venusInfo} );
-// });
-// app.get('/mars', (req, res) => {
-//     let marsInfo = planets.getMars();
-//     marsInfo.image = "https://upload.wikimedia.org/wikipedia/commons/0/0c/Mars_-_August_30_2021_-_Flickr_-_Kevin_M._Gill.png";
-//     res.render("mars", {mars: marsInfo} );
-// });
-// app.get('/saturn', (req, res) => {
-//     let saturnInfo = planets.getSaturn();
-//     res.render("saturn", {saturn: saturnInfo} );
-// });
-// app.get('/nasa', (req, res) => {
-    
-//     res.render("nasa", )
-// });
+
 app.listen(3000, () => {
     console.log("server started");
 });

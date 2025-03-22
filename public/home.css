@@ -1,0 +1,63 @@
+form select, form button {
+    font-size: 15px;
+    padding: 12px;
+    margin: 10px 0;
+    width: 100%;
+    border-radius: 5px;
+    border: 1px solid grey;
+}
+
+form select {
+    background-color: whitesmoke;
+}
+
+form button {
+    background-color: dodgerblue;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+form button:hover {
+    background-color: dodgerblue;
+}
+
+#imageCard img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+#disp {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    gap: 20px;
+    margin: 0 auto;
+}
+
+#formCard {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px grey;
+    max-width: 600px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+#imageCard {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 600px;
+    width: 100%;
+}
+
+
+
+
+
+

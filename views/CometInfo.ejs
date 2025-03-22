@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comets</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+    <h1>Comets</h1>
+    <%- include('partials/navbar.ejs') %>
+    <br>
+    <h2>What is a Comet?</h2>
+    <p><%= cometInfo.def %></p>
+    <h2>Learn More</h2>
+    <a href="<%= cometInfo.link %>">More Information on Comets</a>
+    <h2>Image</h2>
+    <img src="<%= cometInfo.image %>" alt="Comet Image">
+    <%- include('partials/footer.ejs') %>
+</body>
+</html>
+

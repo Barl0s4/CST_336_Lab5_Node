@@ -4,21 +4,34 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home page</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="/home.css">
+    <link rel="stylesheet" href="/styles.css">
 </head>
 <body>
     <h1>Solar system</h1>    
-    <!-- <form action="/getPlanetInfo">
-        <select name="planet">
-            <option value="Mars">Mars</option>
-            <option value="Mercury">Mercury</option>
-        </select>
-    </form> -->
-
-
 
     <%- include('partials/navbar.ejs') %>
-    <img src="<%= img %>" alt="">
+    <div id="disp">
+        <div id="formCard">
+            <form action="/getInfo" method="GET">
+                <select name="info">
+                    <option value="">Select Info</option>
+                    <option value="Meteorites">Meteorites</option>
+                    <option value="Comet">Comets</option>
+                    <option value="Asteroid">Asteroids</option>
+                </select>
+                <button type="submit">Submit</button>
+            </form>   
+    
+            <form action="/nasa" method="GET">
+                <button type="submit">Show NASA's Picture of the Day</button>
+            </form>
+        </div>
+        <div id="imageCard">
+            <img src="<%= img %>" alt="">
+        </div>
+    </div>
+
     <%- include('partials/footer.ejs') %>
 </body>
 </html>

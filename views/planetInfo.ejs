@@ -4,26 +4,28 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="/planetInfo.css">
+    <link rel="stylesheet" href="/styles.css">
 </head>
 <body>
-    
 
     <h1><%= planetSelect %></h1>
     <%- include('partials/navbar.ejs')%>
-    <br>
-    <%= planetInfo.distanceFromSun%>
-    <br>
-    <%= planetInfo.yearLength%>
-    <br>
-    <%= planetInfo.description%>
-    <br>
-    <%= planetInfo.radius%>
-    <br>
-    <%= planetInfo.oneEarthDay%>
-    <br>
-    <%= planetInfo.moons%>
-
-    <img src="<%= planetInfo.image%>" />
+    <div id="card">
+        <div class="planet-info">
+            <p><strong>Distance from Sun:</strong> <%= planetInfo.distanceFromSun %></p>
+            <br>
+            <p><strong>Year Length:</strong> <%= planetInfo.yearLength %></p>
+            <br>
+            <p><strong>Description:</strong> <%= planetInfo.description %></p>
+            <br>
+            <p><strong>Radius:</strong> <%= planetInfo.radius %></p>
+            <br>
+            <p><strong>One Earth Day:</strong> <%= planetInfo.oneEarthDay %></p>
+            <br>
+            <p><strong>Moons:</strong> <%= planetInfo.moons %></p>
+        </div>
+        <img src="<%= planetInfo.image%>" />
+    </div>
 </body>
 </html>
