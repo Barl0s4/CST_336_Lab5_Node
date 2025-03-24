@@ -77,4 +77,6 @@ app.listen(3000, () => {
     console.log("server started");
 });
 
-module.exports = app;
+  
+// Export for Vercel
+export default app;
