@@ -4,6 +4,7 @@ const planets = (await import('npm-solarsystem')).default;
 
 const app = express();
 app.set("view engine","ejs");
+app.set("views", path.join(__dirname, "views"));
 app.use(express.static("public"));
 
 app.get('/', async (req, res) => {
@@ -75,3 +76,5 @@ app.get('/getPlanetInfo', (req, res) => {
 app.listen(3000, () => {
     console.log("server started");
 });
+
+module.exports = app;
