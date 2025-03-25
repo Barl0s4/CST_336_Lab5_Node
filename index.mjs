@@ -78,5 +78,3 @@ app.listen(3000, () => {
 });
 
   
-// Export for Vercel
-export default app;
